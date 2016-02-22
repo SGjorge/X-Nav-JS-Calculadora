@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+     <style type="text/css" media="screen">
+       body{
+         padding:0;
+         margin:50px auto;
+         text-align:center;
+         font:100% Verdana;
+       }
+       h1 {
+         font-size: 1.5em;
+       }
+       #sentence {
+         font-size: 4em;
+       }
+       #another {
+         font-size: 2em;
+       }
+     </style>
+     <script type="text/javascript" charset="utf-8">
+        var result;
+        var first;
+
+       function sum(){
+          if(result != null || first == null){
+            first = result;
+            result = null;
+          };
+          upState();
+       };
+
+       function res(){
+         if(result != null || first != null){
+            getRes();
+          }
+          upState();
+       };
+
+       function num(n){
+          result = n;
+          upState();
+       };
+
+       function getRes(){
+        result += first;
+       }
+
+       function upState(){
+          std = document.getElementById("estate");
+          std.innerHTML = result.toString(2);
+       }
+     </script>
+     <title>Stupid binari cal</title>
+   </head>
+   <body>
+      <div id="estate"></div>
+      <p id="="><a href="javascript:res()">=</a></p>
+      <p id="+"><a href="javascript:sum()">+</a></p>
+      <p id="1"><a href="javascript:num(1)">1</a></p>
+      <p id="0"><a href="javascript:num(0)">0</a></p>
+   </body>
